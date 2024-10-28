@@ -1,0 +1,24 @@
+﻿@page
+@model SecuredModel
+@{
+    ViewData["Title"] = "Secured page";
+    var realm = "myrealm";
+    var publicKey = "MIIBIjANkqhkiG9w0BAQEFAAOCAQ8AMIIBKCAQEAtuXIfxfBlY3Hgf7CRx0W4gVVJk1Jx+SlfhzXiRLg3azWDuKhB2adGjcN/uWWSasDr33xXA51miVbhUk2EYoTCHZJPGaHWfbyBnjzg1wdEaCUhKV8+pGlVdZojspPycv4+aXJxKl5++5sy5ayGMoCWZXBGm+/tAWcAd4+8Cl4RO0RjGdjmNAkyLmtmSc8WKwIQjY0WtsHobteExWkKcnImj+aD1/gmUOYTLigaViaZXDzdaWKsob+ABnLvxrFLrlBdoQIMcrDtbqS4wTA7eeihg1tdBikrr4PbwMG2/mzJpZR1cQD8WIHYOr+GTSNPMux9odhCkw2n5oFMblfrt+4ZwIDAQAB";
+    var tokenService = "http://localhost:8080/realms/myrealm/protocol/openid-connect";
+    var accountService = "http://localhost:8080/realms/myrealm/account";
+}
+
+<h2>Welcome to the Secured Page</h2>
+<p>This page is protected and requires authentication.</p>
+
+<p>@Model.Message</p>
+
+<h3>Configuration Details</h3>
+<ul>
+    <li><strong>Realm:</strong> @realm</li>
+    <li><strong>Public Key:</strong> @publicKey</li>
+    <li><strong>Token Service:</strong> <a href="@tokenService">@tokenService</a></li>
+    <li><strong>Account Service:</strong> <a href="@accountService">@accountService</a></li>
+</ul>
+
+<a href="/signout">ログアウト</a>
